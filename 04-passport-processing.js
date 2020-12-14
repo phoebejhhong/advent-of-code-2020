@@ -13,7 +13,7 @@ function processPassport(stringPassport) {
   return map
 }
 
-const MANEATORY_FIELDS = [
+const MANDATORY_FIELDS = [
   "byr",
   "iyr",
   "eyr",
@@ -64,8 +64,8 @@ function isValueValid (key, value) {
 }
 
 function isPassportValid(passport) {
-  for (i = 0; i < MANEATORY_FIELDS.length; i++) {
-    const field = MANEATORY_FIELDS[i]
+  for (i = 0; i < MANDATORY_FIELDS.length; i++) {
+    const field = MANDATORY_FIELDS[i]
     const value = passport[field];
     if (!value || !isValueValid(field, value)) {
       return false;
