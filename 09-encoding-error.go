@@ -43,18 +43,15 @@ func getViolatingNumbers(numberStrings []string) []int {
 
 func findContiguousSetofSum(target int, fromNumbers []string) []int {
 	for i := 0; i < len(fromNumbers)-1; i++ {
+		iNum, _ := strconv.Atoi(fromNumbers[i])
+		thisSet := []int{iNum}
+		thisSetSum := iNum
 		for j := i + 1; j < len(fromNumbers); j++ {
-			if i != j {
-				thisSet := []int{}
-				thisSetSum := 0
-				for k := i; k < j; k++ {
-					number, _ := strconv.Atoi(fromNumbers[k])
-					thisSet = append(thisSet, number)
-					thisSetSum += number
-				}
-				if thisSetSum == target {
-					return thisSet
-				}
+			jNum, _ := strconv.Atoi(fromNumbers[j])
+			thisSet = append(thisSet, jNum)
+			thisSetSum += jNum
+			if thisSetSum == target {
+				return thisSet
 			}
 		}
 	}
