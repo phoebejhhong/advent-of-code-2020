@@ -9,7 +9,7 @@ function getMark(rows, pos) {
 }
 
 function traverseAndGetTreeCount(xStep, yStep) {
-  const input = fs.readFileSync("./03-input.txt", "utf8");
+  const input = fs.readFileSync("./inputs/03-input.txt", "utf8");
   const rows = input.split("\n");
   if (!rows[rows.length - 1]) {
     rows.pop(); // ignore last newline

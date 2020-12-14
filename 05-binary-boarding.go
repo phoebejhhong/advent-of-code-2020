@@ -60,7 +60,7 @@ func getSeatID(boardingPass string) int {
 }
 
 func main() {
-	data, _ := ioutil.ReadFile("./05-input.txt")
+	data, _ := ioutil.ReadFile("./inputs/05-input.txt")
 	lines := strings.Split(string(data), "\n")
 	highestSeatID := 0
 	mySeatID := 0

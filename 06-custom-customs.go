@@ -36,7 +36,7 @@ func countAllQuestions(input string, peopleCount int) int {
 }
 
 func main() {
-	data, _ := ioutil.ReadFile("./06-input.txt")
+	data, _ := ioutil.ReadFile("./inputs/06-input.txt")
 	lines := strings.Split(string(data), "\n")
 	currentGroupInput := ""
 	currentGroupPeopleCount := 0

@@ -75,7 +75,7 @@ function isPassportValid(passport) {
 }
 
 function processPassports() {
-  const input = fs.readFileSync("./04-input.txt", "utf8");
+  const input = fs.readFileSync("./inputs/04-input.txt", "utf8");
   let currentPassport = "";
   let validCount = 0;
 

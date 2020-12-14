@@ -91,7 +91,7 @@ func getAllChildCountFor(bagName string, bags map[string]*bagNode) int64 {
 }
 
 func main() {
-	data, _ := ioutil.ReadFile("./07-input.txt")
+	data, _ := ioutil.ReadFile("./inputs/07-input.txt")
 	rules := strings.Split(string(data), "\n")
 	bags := parseRules(rules)
 	parentMap := getUniqueParentMapFor("shiny gold", bags)

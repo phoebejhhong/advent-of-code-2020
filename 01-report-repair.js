@@ -2,7 +2,7 @@ const fs = require("fs");
 
 function findPair() {
   const map = {};
-  const input = fs.readFileSync("./01-input.txt", "utf8");
+  const input = fs.readFileSync("./inputs/01-input.txt", "utf8");
   input.split("\n").forEach(line => {
     if (line) {
       map[Number(line)] = true
@@ -24,7 +24,7 @@ function findPair() {
 function findTreeNumbers() {
   const map = {};
   const numbers = [];
-  const input = fs.readFileSync("./01-input.txt", "utf8");
+  const input = fs.readFileSync("./inputs/01-input.txt", "utf8");
   input.split("\n").forEach(line => {
     if (line) {
       const number = Number(line);

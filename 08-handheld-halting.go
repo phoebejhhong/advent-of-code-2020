@@ -77,7 +77,7 @@ func runInstructionsAndFindCorruptedCommand(instructions []string) int {
 }
 
 func main() {
-	data, _ := ioutil.ReadFile("./08-input.txt")
+	data, _ := ioutil.ReadFile("./inputs/08-input.txt")
 	lines := strings.Split(string(data), "\n")
 	instructions := lines[:len(lines)-1]
 	accumulator, _ := runInstructions(instructions)

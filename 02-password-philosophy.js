@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 function getNumberOfValidPWs(validationFn) {
-  const input = fs.readFileSync("./02-input.txt", "utf8");
+  const input = fs.readFileSync("./inputs/02-input.txt", "utf8");
   let count = 0;
   input.split("\n").forEach(line => {
     if (!line) {
