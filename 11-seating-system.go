@@ -10,12 +10,6 @@ const FLOOR = "."
 const EMPTY = "L"
 const OCCUPIED = "#"
 
-func printRoom(room [][]string) {
-	for i := 0; i < len(room); i++ {
-		fmt.Printf("%v\n", room[i])
-	}
-}
-
 func copyRoom(room [][]string) [][]string {
 	newRoom := make([][]string, len(room))
 	for rowIndex, row := range room {
@@ -23,17 +17,6 @@ func copyRoom(room [][]string) [][]string {
 		copy(newRoom[rowIndex], row)
 	}
 	return newRoom
-}
-
-func isSameRoom(room1 [][]string, room2 [][]string) bool {
-	for rowIndex, row := range room1 {
-		for seatIndex, seat := range row {
-			if room2[rowIndex][seatIndex] != seat {
-				return false
-			}
-		}
-	}
-	return true
 }
 
 func countOccupiedSeats(room [][]string) int {
@@ -204,8 +187,9 @@ func shouldBeEmptied(room [][]string, i int, j int, part int) bool {
 	return false
 }
 
-func runRules(room [][]string, part int) [][]string {
+func runRules(room [][]string, part int) ([][]string, bool) {
 	newRoom := copyRoom(room)
+	changed := false
 	for i := 0; i < len(room); i++ {
 		row := room[i]
 		for j := 0; j < len(row); j++ {
@@ -215,21 +199,23 @@ func runRules(room [][]string, part int) [][]string {
 			case EMPTY:
 				if shouldBeOccupied(room, i, j, part) {
 					newRoom[i][j] = OCCUPIED
+					changed = true
 				}
 			case OCCUPIED:
 				if shouldBeEmptied(room, i, j, part) {
 					newRoom[i][j] = EMPTY
+					changed = true
 				}
 			}
 		}
 	}
-	return newRoom
+	return newRoom, changed
 }
 
 func stablizeRoom(room [][]string, part int) [][]string {
-	for true {
-		newRoom := runRules(room, part)
-		if isSameRoom(room, newRoom) {
+	for {
+		newRoom, changed := runRules(room, part)
+		if !changed {
 			return newRoom
 		}
 		room = newRoom
